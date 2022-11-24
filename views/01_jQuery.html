@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 개요</title>
+    <!-- CDN 방식 : Content Delivery Network -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 장점 : 소스 코드 별도 저장할 필요 X, 저장 공간의 여유 확보 -->
+    <!-- 단점 : 인터넷 연결 필수 / 제공하는 서버에 대한 의존도 높아짐 -->
+
+    <!-- 직접 다운로드 받는 방법 -->
+    <script src="../resources/asset/js/jquery-3.6.1.min.js"></script>
+    <!-- jQuery 사용목적이라 min 파일 -->
+    <!-- 
+      Uncompressed - 개발자 전용
+                  일잔 JS 파일 - 개발자나 사용하는 사람들이 보기 쉽고
+                  주석, 들여쓰기, 코드 정렬 등을 사용해
+                  가시성(코드 읽기 좋은 정도)을 유지한 파일
+      Compressed - 배포 전용(고객 전용)
+                  min JS 파일 : 소스 코드의 주석, 들여쓰기, 코드 정렬, 변수명 등을
+                  (차이점을 두기 위해 min을 붙임)
+                  최소화 및 간소화하여 네트워크 상의 데이터 전달 속도를
+                  높인 코드 난독화 파일
+     -->
+  </head>
+  <body>
+    <h1>jQuery 개요</h1>
+
+    <h3>jQuery란?</h3>
+
+    <p>
+      존 레식에 의해 개발된 JS 경량화(코드를 가볍게, 짧고 단순하게 만듦)
+      라이브러리
+    </p>
+
+    <br /><br />
+
+    -- jQuery의 장점 -- <br />
+    1. DOM과 관련된 스크립트를 짧고 쉽게 구현하여 구현속도(생산성)을 향상시킨다.
+    <br />
+    2. ajax(비동기 통신), 이벤트 처리, 이펙트 등을 폭넚게 지원한다. <br />
+    3. jQuery와 관련된 확장 플러그인, 오픈 API를 보다 더, 다양하게 지원한다.
+    (ex. 부트스트랩, 회전목마)
+
+    <br /><br />
+
+    -- jQuery의 단점 -- <br />
+    1. jQuery에 익숙해지면 JS의 약해진다.(난 더이상 jQuery 없이는 살 수 없는
+    몸이 되었다.) <br />
+    2. 관련 확장 플러그인을 쓰고자 할 때 jQuery 버전이 달라 충돌이 발생할 수도
+    있다. <br />
+    3. jQuery 자체도 자바스크립트 안에서 돌아가기 때문에, 순수 자바 스크립트로
+    구현하는 것보다 속도가 느릴 수 밖에 없다.
+
+    <h3>jQuery 맛보기</h3>
+
+    <p id="p1">
+      내가 그린 기린 그림은 목이 긴 기린 그림이고, <br />
+      네가 그린 기린 그림은 목이 짧은 기린 그림이다.
+    </p>
+
+    <button onclick="test1();">실행 확인</button>
+
+    <script>
+      function test1() {
+        //document.getElementById("p1").style.color = "tomato";
+        $("#p1").css("color", "tomato");
+      }
+    </script>
+
+    <h3>$(document).ready()</h3>
+    <p id="p2">현재 웹 문서가 로드된 후에 동작하는 즉석 실행 함수 작성법</p>
+
+    <script>
+      // - JS -
+      /*
+        document.onload = function() {
+          alert("웹 문서 로드 직후 실행 합니다.");
+        }
+        */
+
+      // jQuery
+      /*
+      jQuery(document).ready(function () {
+        // 준비되었을 때 실행
+        alert("제이쿼리 실행 확인!");
+      });
+      */
+
+      // 축약형 1차
+      // jQuery == $
+      /*
+      $(document).ready(function () {
+        alert("제이쿼리 축약형 1차");
+      });
+      */
+
+      // 축약형 2차
+      // document 생략
+      $(function () {
+        alert("최종 축약 형태입니다.");
+      });
+    </script>
+
+    <br /><br /><br /><br />
+    <a href="00_index.html">처음으로 돌아가기</a>
+  </body>
+</html>

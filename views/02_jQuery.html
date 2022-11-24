@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 선택자</title>
+    <!-- 제이쿼리를 사용하려면 라이브러리 등록 필수! -->
+    <script src="../resources/asset/js/jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <h1>jQuery 선택자</h1>
+
+    <h3>전체 선택자 : *</h3>
+
+    <script>
+      //   $(function () {
+      //     $("*").css("background", "lightgreen");
+      //   });
+    </script>
+
+    <hr />
+
+    <h3>태그 선택자</h3>
+
+    <!-- h$@4*3 -->
+    <h4>홍길동</h4>
+    <h5>고길동</h5>
+    <h6>홍길서</h6>
+
+    <script>
+      $(function () {
+        $("h4").css("color", "orangered");
+
+        $("h5, h6").css("background", "white"); // 여러 태그 선택 가능
+      });
+    </script>
+
+    <h3>클래스 선택자</h3>
+
+    <p class="g1">클래스 그룹 1</p>
+    <p class="g1 g2">클래스 그룹 2</p>
+    <p class="g2">클래스 그룹 3</p>
+
+    <script>
+      $(function () {
+        $(".g1").css("color", "red");
+
+        $(".g1.g2").css("color", "indianred");
+
+        $(".g1, .g2").css("border", "3px solid blue");
+      });
+    </script>
+
+    <h3>아이디 선택자</h3>
+
+    <h1>가나</h1>
+    <h1 id="choco">투유</h1>
+    <h1>크런치</h1>
+
+    <script>
+      $(function () {
+        $("#choco").css("color", "chocolate");
+      });
+    </script>
+
+    <h3>자식 선택자, 후손 선택자</h3>
+
+    <ul>
+      <li>
+        <h4>후손</h4>
+      </li>
+      <li>
+        자손
+        <ol>
+          <li>후손li</li>
+          <li>후손li</li>
+          <li>후손li</li>
+        </ol>
+      </li>
+      <li>자손</li>
+      <li>자손</li>
+      <li>자손</li>
+    </ul>
+
+    <script>
+      $(function () {
+        $("li > h4").css("color", "white"); // 자식 선택자
+
+        $("ul li").css("background", "plum"); // 후손 선택자
+      });
+    </script>
+
+    <h3>속성 선택자</h3>
+
+    <p>
+      요소[속성] : 해당 속성을 가진 요소를 선택 <br />
+      ex) &lt; input type="text" &lt; --&lt; $("input[type]"); <br />
+      요소[속성=속성값] : 해당 속성의 값을 가진 요소를 선택 <br />
+      ex) duv[name=daniel] : div 중 name 속성의 값이 "daniel"인 div <br />
+      요소[속성~=속성값] : 해당 속성의 특정 값을 단어로써 포함하는 요소 <br />
+      ex) div class="hello whoami" --&lt; $("div[class~=hello]"); <br />
+      요소[속성 $= 속성값] : 속성 안의 값이 특정 단어로 끝나는 경우 <br />
+      ex) div class="prisonbox" --&lt; $("div[class$=box]"); <br />
+      요소[속성 *= 속성값] : 속성값들 중 특정 값이 존재하면 선택 <br />
+      ex) div class="applefox" --&lt; $("div[class*=lef]");
+    </p>
+
+    <input type="text" /> <br />
+    <input type="password" class="test1 test2" /> <br />
+    <input type="radio" /> <br />
+    <input type="checkbox" class="test3" /> <br />
+    <input type="file" />
+
+    <script>
+      $(function () {
+        $("input[type=text]").val("야 곧 점심시간이다!"); // var는 값을 넣는
+        // $("input[class~=test1]").val(12345);
+        $("input.test1").val(123456789); // class 선택
+        $("input[type*=ad]").attr("checked", true); // .attr는 속성 자체를 의미
+
+        /*
+        $("input[type$=box]").css("width", "25px");
+        $("input[type$=box]").css("height", "25px");
+        */
+
+        /* 위 코드의 축약
+        $("input[type$=box]").css("width", "25px").css("height", "25px");
+        */
+
+        // 위 코드 한 번 더 축약
+        // JSON 형식의 객체 속성 적용
+        $("input[type$=box]").css({
+          width: "25px",
+          height: "25px",
+        });
+      });
+    </script>
+
+    <br /><br /><br /><br />
+    <a href="00_index.html">처음으로 돌아가기</a>
+  </body>
+</html>
