@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력 양식 선택자</title>
+    <script src="../resources/asset/js/jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <h2>입력 양식 선택자</h2>
+
+    텍스트상자 : <input type="text" /> <br />
+    버튼 : <input type="button" value="버튼" /> <br />
+
+    체크박스 : <input type="checkbox" /> <br />
+    파일 선택 : <input type="file" /> <br />
+    이미지 :
+    <input
+      type="image"
+      src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjExMjBfMTU1%2FMDAxNjY4OTM4MTIzNjA0.454ii1pVWejsxAAgvoAt4rl9tgX3HCxl2aXkcjU-rhog.pwO3cv4euIDVjdDYx_4oKOAEm6Pb6NhZN5B4ykyctj4g.JPEG.ljs1642%2FIMG_0098.JPG&type=sc960_832"
+    />
+
+    <script>
+      $(function () {
+        $("input:text").css("background", "lemonchiffon");
+
+        $("input:button")
+          .val("짱크게!")
+          .css({ width: "100px", height: "100px" });
+
+        $("input:checkbox").attr("checked", true);
+
+        $("input:file").css("background", "yellow");
+
+        $("input:image").mouseenter(function () {
+          $(this).attr("src", "");
+        });
+
+        $("input:image").mouseout(function () {
+          $(this).attr("src", "");
+        });
+      });
+    </script>
+
+    <br /><br /><br /><br />
+    <a href="00_index.html">처음으로 돌아가기</a>
+  </body>
+</html>

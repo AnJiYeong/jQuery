@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력 양식 선택자2</title>
+    <script src="../resources/asset/js/jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <h3>입력 양식 선택자2</h3>
+
+    <h3>체크박스 선택자</h3>
+    선호 영화 장르 : <br />
+    <input type="checkbox" name="" id="sf" />SF
+    <input type="checkbox" name="" id="ani" />애니메이션
+    <input type="checkbox" name="" id="thrill" />스릴러
+    <br />
+    <input type="checkbox" name="" id="roce" />로맨틱 코미디
+    <input type="checkbox" name="" id="action" />액션
+
+    <script>
+      // onchange : 값이 변경될 때를 감지하는 이벤트 리스너
+      $("input:checkbox").onchange(checkGenre);
+
+      function checkGenre() {
+        console.log($(this).attr("id"));
+        console.log($(this).prop("checked"));
+
+        // attr() / prop()
+        // attr() 단, id, class와 같이 속성의 값이 문자열인 경우 사용하고,
+        // prop()는 checked, disabled, required와 같이 속성 값이
+        // true / false로 나뉘는 속성을 확인할 때 사용한다.
+
+        if ($(this).prop("checked")) {
+          $(this).css({
+            width: "30px",
+            height: "30px",
+          });
+        } else {
+          $(this).css({
+            width: "15px",
+            height: "15px",
+          });
+        }
+      }
+    </script>
+
+    <h3>select와 option 태그 상태 선택자</h3>
+    이메일 입력 : <br />
+    <input type="text" id="email" size="6" /> &nbsp;
+    <select id="domain">
+      <option value="@naver.com">네이버</option>
+      <option value="@gmail.com">구글</option>
+      <option value="@daum.net">다음</option>
+    </select>
+
+    <br />
+    <br />
+
+    <span id="result"></span>
+
+    <script>
+      function getEmail() {
+        // document.getElementById("emeil").value;
+        var userId = $("#email").val();
+        var userId = $("option:selected").val();
+
+        $("#result").html(userId + domain);
+      }
+
+      $("#domain").change(getEmail);
+    </script>
+
+    <hr />
+
+    <h3>순서 관련 선택자</h3>
+
+    <table border="1" 1>
+      <tr>
+        <th>이름</th>
+        <th>나이</th>
+        <th>주소</th>
+      </tr>
+      <tr>
+        <th>홍길동</th>
+        <th>5</th>
+        <th>강남구</th>
+      </tr>
+      <tr>
+        <th>홍길서</th>
+        <th>10</th>
+        <th>인천</th>
+      </tr>
+      <tr>
+        <th>홍길남</th>
+        <th>15</th>
+        <th>부산</th>
+      </tr>
+      <tr>
+        <th>홍길북</th>
+        <th>20</th>
+        <th>대전</th>
+      </tr>
+    </table>
+
+    <script>
+      $("tr:first").css("background", "yellow");
+      $("tr:last").css("background", "lawngreen");
+
+      $("tr:odd").css("background", "cyan");
+      $("tr:even").css("background", "wheat");
+
+      $("table tr:eq(1)").css("color", "red");
+    </script>
+
+    <br /><br /><br /><br />
+    <a href="00_index.html">처음으로 돌아가기</a>
+  </body>
+</html>
